@@ -14,6 +14,10 @@ export const getRoom = `${host}/api/room/getRoom`;
 //Get Message Room Chat
 export const getMessagesRoom = `${host}/api/messages/getMessagesRoom`;
 export const addTT = `${host}/api/room/addTT`;
+export const renameRoom = `${host}/api/room/renameRoom`;
+
+export const updateManager = `${host}/api/room/updateManager`;
+export const blockChat = `${host}/api/room/blockChat`;
 
 //Image Send
 export const imageMessageSend = `${host}/api/messages/image-message-send`;

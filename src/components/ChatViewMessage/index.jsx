@@ -1,4 +1,4 @@
-import { BackTop, Button, Dropdown, Menu, message } from "antd";
+import { BackTop, Button, Dropdown, Menu, message ,Image} from "antd";
 import { RiShareForwardFill } from "react-icons/ri";
 import { FaEllipsisH, FaQuoteRight } from "react-icons/fa";
 import React, { useState, useEffect, useRef, useContext } from "react";
@@ -47,7 +47,7 @@ export default function ChatViewMessage({ messages, socket, setMessages }) {
 
         console.log(mesId);
         const handleDeleteMessToAll = async () => {
-            if (currentChat !== undefined) {
+            if (currentChat !== undefined && mesId.fromSelf) {
                 console.log("handleDeleteMessToAll Single Chat");
 
                 const data = await JSON.parse(
@@ -80,7 +80,7 @@ export default function ChatViewMessage({ messages, socket, setMessages }) {
                     });
                     setMessages(msgs);
                 }
-            } else if (roomChat !== undefined) {
+            } else if (roomChat !== undefined && mesId.fromSelf) {
                 console.log("handleDeleteMessToAll Group Chat");
 
                 const data = await JSON.parse(
@@ -295,6 +295,7 @@ export default function ChatViewMessage({ messages, socket, setMessages }) {
         <div className="chat-view-message">
             {messages.map((message, index) => {
                 return (
+                    
                     <div
                         ref={scrollRef}
                         key={index}

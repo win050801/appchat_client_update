@@ -9,11 +9,14 @@ import {
 import "./style.css";
 import { AppContext } from "../../context/AppProvider";
 export default function ChatHeaderBtn() {
-  const { setIsAddUserModalOpen,roomChat } =
+  const { setIsAddUserModalOpen,roomChat, isShowInfoRoom,setShowInfoRoom } =
     useContext(AppContext);
     const handleAddUser = () => {
       setIsAddUserModalOpen(true);
     };
+    const showinfo = () => {
+      setShowInfoRoom(!isShowInfoRoom)
+    }
   return (
     <div className="chat-header-btn">
       <Button
@@ -32,7 +35,9 @@ export default function ChatHeaderBtn() {
         type="text"
         icon={<VideoCameraOutlined />}
       />
-      <Button className="btn-chat-header" type="text" icon={<BarsOutlined />} />
+      <>{roomChat !==undefined ? (<div><Button onClick={showinfo} className="btn-chat-header" type="text" icon={<BarsOutlined />} /></div>):(<div></div>)}</>
+      
+      
     </div>
   );
 }

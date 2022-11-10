@@ -20,7 +20,7 @@ export default function ChatViewInput({
     messages,
     setMessages,
 }) {
-    const { currentChat, roomChat } = useContext(AppContext);
+    const { currentChat, roomChat,user } = useContext(AppContext);
     const [msg, setMsg] = useState("");
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
@@ -35,9 +35,23 @@ export default function ChatViewInput({
     const sendChat = (event) => {
         event.preventDefault();
         if (msg.length > 0) {
-            handleSendMsg(msg);
-            setMsg("");
-        }
+            if(roomChat!==undefined)
+            {
+                if(roomChat.blockChat.indexOf(user._id)>=0)
+                {
+                alert("Ban bi cam chat")
+                }
+                else{
+                handleSendMsg(msg);
+                setMsg("");
+                }
+            }
+            else if(currentChat!==undefined)
+            {
+                handleSendMsg(msg);
+                setMsg("");
+            }   
+    }
     };
     const room = {
         displayName: "Enter your message",
@@ -100,6 +114,14 @@ export default function ChatViewInput({
 
                 setMessages(msgs);
             } else if (roomChat !== undefined) {
+                if(roomChat.blockChat.indexOf(user._id)>=0)
+                {
+                alert("Ban bi cam chat")
+                }
+                else{
+                
+                
+
                 formData.append("reseverId", roomChat.id);
                 // console.log("call api");
                 const response = await axios.post(imageMessageSend, formData);
@@ -127,6 +149,7 @@ export default function ChatViewInput({
                 });
 
                 setMessages(msgs);
+                }
             }
         }
     };
@@ -186,6 +209,11 @@ export default function ChatViewInput({
 
                 setMessages(msgs);
             } else if (roomChat !== undefined) {
+                if(roomChat.blockChat.indexOf(user._id)>=0)
+                {
+                alert("Ban bi cam chat")
+                }
+                else{
                 formData.append("reseverId", roomChat.id);
 
                 const response = await axios.post(fileMessageSend, formData);
@@ -213,6 +241,7 @@ export default function ChatViewInput({
                     deletedToAll: false,
                 });
                 setMessages(msgs);
+                }
             }
         }
     };
@@ -237,39 +266,43 @@ export default function ChatViewInput({
                     {showEmojiPicker && (
                         <Picker onEmojiClick={handleEmojiClick} />
                     )}
-
+                
                     <input
-                        accept=".mp4,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        style={{width:0}}
+                        accept=".mp4,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.wmv"
                         onChange={fileSend}
                         type="file"
                         id="picFile"
                         className="hide"
                     ></input>
-                    <label htmlFor="picFile" className="btn-input">
-                        <LinkOutlined />
-                    </label>
-
-                    <div className="file hover-image">
+                        <div className="btnfile">
+                        <label  htmlFor="picFile" className="icon-btn">
+                            <LinkOutlined style={{ fontSize: '125%'}}/>
+                        </label>
+                        </div>
+                    
                         <input
+                            style={{width:0}}
                             accept="image/x-png,image/gif,image/jpeg"
                             multiple="multiple"
                             onChange={imageSend}
                             type="file"
                             id="pic"
                         ></input>
-
-                        <label htmlFor="pic">
-                            <PictureOutlined />
+                        <span style={{width:5}}></span>
+                        <div className="btnfile">
+                        <label className="icon-btn" htmlFor="pic">
+                            <PictureOutlined style={{ fontSize: '125%'}} />
                         </label>
-                    </div>
+                        </div>
 
-                    <Button
-                        className="emoji btn-input"
-                        icon={<SmileOutlined />}
-                        onClick={handleEmojiPickerhideShow}
-                        type="text"
-                        size="large"
-                    ></Button>
+                        <Button
+                            className="emoji btn-input"
+                            icon={<SmileOutlined />}
+                            onClick={handleEmojiPickerhideShow}
+                            type="text"
+                            size="large"
+                        ></Button>
 
                     <Button className="btn-submit" type="primary">
                         Gửi

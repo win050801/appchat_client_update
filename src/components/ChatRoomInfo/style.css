@@ -1,0 +1,160 @@
+.chat-room-info {
+  background-color: #fefefe;
+  height: 100vh;
+  border-left: 1px #e1e4ea solid;
+}
+
+.chat-room-info-header {
+  height: 8vh;
+  border-bottom: 1px #e1e4ea solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-room-info-header span {
+  font-size: 20px;
+  font-weight: bold;
+}
+.chat-room-info-body {
+  overflow-y: auto;
+  height: 92vh;
+}
+.chat-room-info-body-body {
+  border-bottom: 10px #e1e4ea solid;
+}
+.chat-room-info-body-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+.chat-room-info-body-btn-avatar {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100%;
+  margin-bottom: 0.5rem;
+  background-color: #fefefe;
+}
+.chat-room-info-body-btn-group {
+  display: flex;
+}
+.chat-room-info-body-btn-group div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.chat-room-info-body-btn-group Button {
+  background-color: #e1e4ea;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.2rem;
+}
+.chat-room-info-body-btn-name {
+  margin-bottom: 1rem;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.chat-room-info-body-btn-name Button {
+  background-color: #e1e4ea;
+  border-radius: 100%;
+  margin-left: 0.5rem;
+}
+.chat-room-info-body-btn-name Button:hover {
+  background-color: #b7bcc7;
+}
+.chat-room-info-body-btn-group Button:hover {
+  background-color: #b7bcc7;
+}
+.chat-room-info-body-btn-group Button span {
+  font-size: 1.3rem;
+}
+.chat-room-info-body-mn {
+  color: black;
+  font-weight: 600;
+  font-size: 18px;
+}
+.chat-room-info-body-members-lst {
+  display: flex;
+  align-items: center;
+}
+.chat-room-info-body-members-member {
+  width: 69%;
+  display: flex;
+  align-items: center;
+}
+.chat-room-info-body-members-member p {
+  color: red;
+  text-align: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #0068ff;
+  height: auto;
+  width: max-content;
+}
+.chat-room-info-body-members-lst Button {
+  background-color: #c7ddff;
+  width: 5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #0068ff;
+}
+.chat-room-info-body-members-lst Button:hover {
+  background-color: #abcdff;
+}
+.chat-room-info-body-link {
+  display: flex;
+  justify-content: space-between;
+}
+.room-members:hover{
+  background-color:rgb(185, 180, 180) ;
+}
+.room-members{
+  display: flex;
+  align-items: center;
+  cursor:pointer;
+  padding-left: 10px;
+  width: "100%";
+  height: 45px;
+
+  /* background-color: red; */
+}
+.laberTV{
+  line-height: 35px;
+}
+
+.back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+  border-radius: 50%;
+  /* padding-top: 2px; */
+  cursor:pointer;
+  width: 25px;
+  height: 25px;
+}
+.back:hover{
+  background-color:rgb(185, 180, 180) ;
+}
+.btn-add{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 290px;
+  height: 35px;
+  cursor:pointer;
+  border-radius: 5px;
+  background-color: rgb(232, 231, 231);
+}
+.info-1:hover{
+  background-color: rgb(232, 231, 231);
+  /* color: rgb(176, 174, 174); */
+}
+.menuthanhvien :hover{
+  background-color:rgb(204, 202, 202);
+}

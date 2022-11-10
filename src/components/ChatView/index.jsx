@@ -161,7 +161,8 @@ export default function ChatView({ socket, currentChat }) {
                                     id: id,
                                     image: image,
                                     files: "",
-                                    avatarImage: avatarImage,
+                                    atarImage: avatarImage,
+                                    namesend:namesend
                                 });
                             } else if (msg === undefined && image === "") {
                                 // console.log("Send files");
@@ -171,7 +172,8 @@ export default function ChatView({ socket, currentChat }) {
                                     image: "",
                                     files: files,
                                     id: id,
-                                    avatarImage: avatarImage,
+                                    atarImage: avatarImage,
+                                    namesend:namesend
                                 });
                             } else {
                                 // console.log("Send Message");
@@ -182,6 +184,8 @@ export default function ChatView({ socket, currentChat }) {
                                     image: "",
                                     files: "",
                                     id: id,
+                                    avatarImage: avatarImage,
+                                    namesend:namesend
                                 });
                             }
                         }

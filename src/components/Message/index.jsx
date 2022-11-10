@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Avatar, Typography } from "antd";
+
 import { formatRelative } from "date-fns/esm";
 import "./style.css";
 import { addreaction } from "../../utils/APIRoutes";
 import axios from "axios";
+import { Avatar, Button, Image, Typography} from "antd";
 function formatDate(seconds) {
     let formattedDate = "";
 
@@ -35,6 +36,7 @@ export default function Message({
     avatarImage,
     deletedFromSelf,
     deletedToAll,
+    
 }) {
     const checkFileTypesByName = (array) => {
         for (var i = 0; i < array.length; i++) {
@@ -43,6 +45,7 @@ export default function Message({
             switch (ext.toLowerCase()) {
                 case "mp4":
                 case "video":
+                case "wmv":
                     //etc
                     return true;
             }
@@ -127,14 +130,18 @@ export default function Message({
         <div className="message">
             <div className={`${user.uid === mesUid ? "m-msg" : "msg"}`}>
                 {fromSelf === false ? (
-                    <Avatar className="avatar" size="large" src={photoURL}>
-                        {photoURL ? "" : displayName?.charAt(0)?.toUpperCase()}
+                    <Avatar className="avatar" size="large" src={avatarImage}>
+                        {avatarImage ? "" : displayName?.charAt(0)?.toUpperCase()}
                     </Avatar>
                 ) : (
                     <></>
                 )}
 
                 <div className="content">
+                    <Typography.Text className="message-author">
+                        {namesend}
+                    </Typography.Text>
+                   
                     <div>
                         {!deletedToAll ? (
                             <div>
@@ -153,6 +160,7 @@ export default function Message({
                                                                     image
                                                                 ) === false ? (
                                                                     <img
+                                                                        
                                                                         key={
                                                                             image
                                                                         }
@@ -169,6 +177,7 @@ export default function Message({
                                                                                 m
                                                                             ) => (
                                                                                 <img
+                                                                                    style={{maxWidth:400}}
                                                                                     key={
                                                                                         m
                                                                                     }
@@ -192,7 +201,7 @@ export default function Message({
                                                                         key={
                                                                             files
                                                                         }
-                                                                        href="files"
+                                                                        href={files}
                                                                     >
                                                                         {files}
                                                                     </a>
@@ -202,7 +211,7 @@ export default function Message({
                                                                             files
                                                                         }
                                                                         autoPlay={
-                                                                            false
+                                                                            true
                                                                         }
                                                                         muted={
                                                                             true
@@ -219,7 +228,9 @@ export default function Message({
                                                         )}
                                                     </div>
                                                 ) : (
-                                                    <h3>{text}</h3>
+                                                     <div style={{maxWidth:300}}>
+                                                        <p className="text-mess">{text}</p>
+                                                     </div>
                                                 )}
                                             </div>
                                         )}
@@ -234,12 +245,16 @@ export default function Message({
                                                         {checkGroupImage(
                                                             image
                                                         ) === false ? (
-                                                            <img
+                                                            <Image.PreviewGroup>
+                                                            <Image
+                                                                        
+                                                                style={{maxWidth:400}}
                                                                 key={image}
                                                                 className="imgmess"
                                                                 src={image}
                                                                 alt="image"
                                                             />
+                                                            </Image.PreviewGroup>
                                                         ) : (
                                                             <div>
                                                                 {image.map(
@@ -266,14 +281,14 @@ export default function Message({
                                                         ) === false ? (
                                                             <a
                                                                 key={files}
-                                                                href="files"
+                                                                href={files}
                                                             >
                                                                 {files}
                                                             </a>
                                                         ) : (
                                                             <video
                                                                 key={files}
-                                                                autoPlay={false}
+                                                                autoPlay={true}
                                                                 muted={true}
                                                                 src={files}
                                                                 width="300"
@@ -285,7 +300,9 @@ export default function Message({
                                                 )}
                                             </div>
                                         ) : (
-                                            <h3>{text}</h3>
+                                            <div style={{maxWidth:300}}>
+                                                <p className="text-mess">{text}</p>
+                                            </div>
                                         )}
                                     </div>
                                 )}

@@ -45,8 +45,26 @@
   visibility: hidden;
   padding: 0 1rem;
 }
+.menu1 {
+  background: #ffffff;
+  border-radius: 6px;
+  position: absolute;
+  top: 250px;
+  left: 70px;
+  width: 240px;
+  z-index: 10;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  padding: 0 1rem;
+}
+
 
 .menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+.menu1.active {
   opacity: 1;
   visibility: visible;
 }
@@ -56,8 +74,16 @@
   padding: 0;
   margin: 0;
 }
+.menu1 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 .menu li {
+  padding: 0.5rem 0;
+}
+.menu1 li {
   padding: 0.5rem 0;
 }
 

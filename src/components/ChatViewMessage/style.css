@@ -3,14 +3,17 @@
     max-height: 100%;
     background-color: #eeeff2;
     overflow-y: auto;
+    /* overflow-x: hidden; */
 }
 .m-msg {
     float: right;
     clear: both;
+    max-width: 500px;
 }
 .msg {
     float: left;
     clear: both;
+    max-width: 500px;
 }
 
 .menu-msg-m {

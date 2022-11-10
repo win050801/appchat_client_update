@@ -6,7 +6,7 @@ import "./style.css";
 import axios from "axios";
 import {addRoom} from "../../utils/APIRoutes"
 export default function AddGroupModal() {
-  const { isAddGroupModalOpen, setIsAddGroupModalOpen,contacts,user,setRoom } =
+  const { isAddGroupModalOpen, setIsAddGroupModalOpen,contacts,user,setRoom ,rooms,setRooms} =
     useContext(AppContext);
   const data = contacts
   const[members,setMembers] = useState([])
@@ -25,6 +25,17 @@ export default function AddGroupModal() {
             members:mems,
             manager:user._id
           });
+          const rooom = {roomName:roomName,
+            members:mems,
+            manager:user._id,
+            id:data.data.id
+          }
+          
+          const roooms = [...rooms]
+          roooms.push(rooom)
+        
+          
+          setRooms(roooms)
           setMembers([])
           // console.log(data.data[0].members);
         } catch (error) {

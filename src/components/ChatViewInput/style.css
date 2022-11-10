@@ -64,3 +64,20 @@ input:focus {
     background-color: #080420;
     width: 5px;
 }
+.btnfile:hover{
+    background-color:#eeeff2 ;
+    border-radius: 3px;
+}
+.btnfile{
+    cursor:pointer;
+    display: flex;
+    padding-top: 3px;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    /* background-color: red; */
+}
+.icon-btn{
+    cursor:pointer;
+}
