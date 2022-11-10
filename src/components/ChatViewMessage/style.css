@@ -1,0 +1,64 @@
+.chat-view-message {
+    height: 84vh;
+    max-height: 100%;
+    background-color: #eeeff2;
+    overflow-y: auto;
+}
+.m-msg {
+    float: right;
+    clear: both;
+}
+.msg {
+    float: left;
+    clear: both;
+}
+
+.menu-msg-m {
+    display: flex;
+    width: fit-content;
+    border-radius: 8px;
+    right: 90%;
+    bottom: 5rem;
+}
+
+.menu-msg-m li:hover {
+    background-color: white;
+}
+.menu-msg-m Button {
+    height: fit-content;
+    margin: -0.5rem;
+}
+.menu-msg-m Button:hover {
+    background-color: white;
+}
+
+.menu-msg {
+    display: flex;
+    width: fit-content;
+    border-radius: 8px;
+    left: 100%;
+    bottom: 4rem;
+}
+
+.menu-msg li:hover {
+    background-color: white;
+}
+.menu-msg Button {
+    height: fit-content;
+    margin: -0.5rem;
+}
+.menu-msg Button:hover {
+    background-color: white;
+}
+
+.menu-msg-icon {
+    color: #65707b;
+    font-size: 1rem;
+}
+
+.menu-msg-icon:hover {
+    color: #0068ff;
+}
+.menu-more {
+    border-radius: 8px;
+}
