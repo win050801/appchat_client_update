@@ -20,7 +20,7 @@
     display: flex;
     width: fit-content;
     border-radius: 8px;
-    right: 90%;
+    right: 8rem;
     bottom: 5rem;
 }
 
@@ -40,7 +40,7 @@
     width: fit-content;
     border-radius: 8px;
     left: 100%;
-    bottom: 4rem;
+    bottom: 5rem;
 }
 
 .menu-msg li:hover {
