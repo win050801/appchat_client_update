@@ -1,7 +1,0 @@
-.chat-view {
-  height: 92vh;
-  background-color: #4770ea;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
